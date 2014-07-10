@@ -71,7 +71,8 @@ function map(currency){
         var teste = Rx.Observable.interval(15000).startWith(1).flatMap(function(){
             $bitcoin_first.empty();
             $bitcoin_second.empty();
-			getOrInitializeQuantity();
+			quantidade = $('#quantity').val();
+            quantidadeDeMercadosConsultados = quantidade <= 0 ? 10 : quantidade;
             $('#currencies-dropdown').empty();
             $('#progress-container').fadeIn(500);
             $('#progress').prop('style').width = '0%';
@@ -101,12 +102,6 @@ function map(currency){
 
             return Rx.Observable.fromArray(selectedCurrency);
         }).concatAll();
-		
-		function getOrInitializeQuantity(){
-			quantidade = $('#quantity').val();
-            quantidadeDeMercadosConsultados = quantidade <= 0 ? 10 : quantidade;
-			$('#quantity').val(quantidadeDeMercadosConsultados);
-		}
 		
 	    function populateColumn(value){
 	        var ask =  '<span class="badge">' + value.ask + ' asked</span>';

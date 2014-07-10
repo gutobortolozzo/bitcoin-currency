@@ -1,0 +1,18 @@
+.distance {
+    margin-right: 8px;
+}
+
+.float-on-top {
+    width: 80%;
+    position: absolute;
+    z-index: 10;
+    height: 0.5%;
+}
+
+.lower-down {
+    margin-top: 2%;
+}
+
+.title {
+	margin-left:3%;
+}
